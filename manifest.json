@@ -1,0 +1,21 @@
+{
+  "name": "github-reactions-minimap",
+  "version": "0.1.0.0",
+  "description": "Displays reactions alongside scrollbar",
+
+  "homepage_url": "https://github.com/chrismwendt/github-reactions-minimap",
+
+  "icons": {
+    "128": "icon.png"
+  },
+
+  "content_scripts": [{
+    "js": [ "jquery.min.js", "main.js" ],
+    "matches": [ "*://github.com/*/*/issues/*" ],
+    "run_at": "document_end"
+  }],
+
+  "permissions": [ "tabs", "*://github.com/*/*/issues/*" ],
+
+  "manifest_version": 2
+}
