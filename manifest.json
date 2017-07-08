@@ -11,11 +11,11 @@
 
   "content_scripts": [{
     "js": [ "jquery.min.js", "main.js" ],
-    "matches": [ "*://github.com/*/*/issues/*" ],
+    "matches": [ "*://github.com/*" ],
     "run_at": "document_end"
   }],
 
-  "permissions": [ "tabs", "*://github.com/*/*/issues/*" ],
+  "permissions": [ "activeTab" ],
 
   "manifest_version": 2
 }
