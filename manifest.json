@@ -1,7 +1,7 @@
 {
-  "name": "github-reactions-minimap",
+  "name": "GitHub reactions minimap",
   "version": "0.1.0.0",
-  "description": "Displays reactions alongside scrollbar",
+  "description": "Displays reactions as red/green marks in the scrollbar",
 
   "homepage_url": "https://github.com/chrismwendt/github-reactions-minimap",
 
