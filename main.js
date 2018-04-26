@@ -47,9 +47,13 @@ var markup = () => {
   });
 };
 
-$(document).on('pjax:end', () => isIssueOrPull() && markup());
+$(document).on('pjax:end', () => {
+  isIssueOrPull() && markup();
+  return true;
+});
 $(document).on('pjax:start', () => {
   state.forEach(t => $(t).remove());
   state = [];
+  return true;
 });
 isIssueOrPull() && markup();
