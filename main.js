@@ -17,12 +17,14 @@ var markup = () => {
     var karmaMap = {
       "+1": 1,
       "-1": -1,
-      "thinking_face": -1,
+      "thinking_face": 0,
       "heart": 1,
-      "tada": 1,
-      "smile": 1
+      "tada": 2,
+      "smile": 1,
+      "rocket": 3,
+      "eyes": 0
     };
-    var karma = comment.reactions.reduce((karma, reaction) => karma + karmaMap[reaction.name] * reaction.count, 0);
+    var karma = comment.reactions.reduce((karma, reaction) => karma + (karmaMap[reaction.name] || 0) * reaction.count, 0);
     var div = document.createElement("div"); // piece of the minimap
     div.style.position = "fixed";
     div.style.top = comment.top * 100 + '%';
@@ -40,7 +42,7 @@ var markup = () => {
       return [i(r1, r2), i(g1, g2), i(b1, b2)];
     };
 
-    var [_, r1, g1, b1] = $(comment.element).css("border-color").match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/); 
+    var [_, r1, g1, b1] = $(comment.element).css("border-color").match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
     var [r2, g2, b2] = karma > 0 ? [0, 255, 0] : [255, 0, 0];
     var [r, g, b] = lerpColor(r1, g1, b1, r2, g2, b2, 1 - 10 / (10 + Math.abs(karma)));
     $(comment.element).css("border-color", "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")");
