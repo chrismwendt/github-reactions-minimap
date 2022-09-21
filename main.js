@@ -7,9 +7,9 @@ var markup = () => {
     element: element,
     top: $(element).offset().top / $(document).height(),
     height: $(element).height() / $(document).height(),
-    reactions: $(element).find('.reaction-summary-item').not('.add-reaction-btn').map((_index, reaction) => ({
+    reactions: $(element).find('.social-reaction-summary-item').not('.add-reaction-btn').map((_index, reaction) => ({
       name: $(reaction).find('g-emoji').attr("alias"),
-      count: $(reaction).contents().not($(reaction).children()).text().trim()
+      count: $(reaction).find('.js-discussion-reaction-group-count').contents().text().trim()
     })).get()
   })).get();
 
