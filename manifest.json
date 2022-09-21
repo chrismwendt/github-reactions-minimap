@@ -15,7 +15,7 @@
     "run_at": "document_end"
   }],
 
-  "permissions": [ "activeTab" ],
+  "permissions": [],
 
   "manifest_version": 3
 }
